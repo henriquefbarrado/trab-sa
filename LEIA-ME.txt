@@ -1,0 +1,35 @@
+PIXELVAULT - WINDOWS FORMS (C#)
+===============================
+App desktop AUTONOMO: ele tem seu proprio banco SQLite local.
+NAO precisa de Node, de "npm start" nem do projeto web.
+
+REQUISITO
+- .NET SDK 8 ou mais novo: https://dotnet.microsoft.com/download
+
+COMO RODAR (PowerShell, dentro desta pasta)
+    dotnet run
+Ou abra a pasta no Visual Studio e aperte F5.
+(Na primeira vez o dotnet baixa os pacotes; precisa de internet.)
+
+IMPORTANTE
+- "npm start" e do projeto web. Esta pasta nao tem package.json,
+  por isso aparecia o erro ENOENT. Aqui o comando correto e: dotnet run
+
+BANCO DE DADOS
+- Criado automaticamente em %LocalAppData%\PixelVault\pixelvault.db
+  com 12 jogos e 3 clientes de exemplo.
+- Para zerar: feche o app e apague esse arquivo.
+
+CAPAS (opcional)
+- Coloque imagens na pasta "capas" (jpg, png ou webp).
+  Nome = titulo em minusculas, sem acentos, com hifens: elden-ring.jpg
+- Sem imagem, o card mostra o titulo do jogo.
+
+ARQUIVOS
+- MainForm.cs : telas (Loja, Jogos, Clientes, Vendas) e carrinho
+- Api.cs      : acesso ao SQLite, regras de negocio e capas
+- Program.cs  : inicio do programa
+
+REGRA DE NEGOCIO
+- Nao vende com estoque zero nem acima do estoque (validado na tela
+  e novamente no banco, dentro de uma transacao).

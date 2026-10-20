@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <!-- Permite rodar mesmo se você só tiver o .NET 9 ou 10 instalado -->
+    <RollForward>LatestMajor</RollForward>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>PixelVault</RootNamespace>
+    <AssemblyName>PixelVault</AssemblyName>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="8.0.10" />
+    <PackageReference Include="SkiaSharp" Version="2.88.9" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- Copia a pasta de capas para junto do executável -->
+    <None Update="capas\**" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+</Project>
